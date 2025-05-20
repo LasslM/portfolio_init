@@ -1,6 +1,7 @@
 import Header from "@/components/Header.jsx";
 import Footer from "@/components/Footer.jsx";
 import {all_projects} from "../constants/index.jsx";
+import {Link} from "react-router-dom";
 
 import {
     Breadcrumb,
@@ -18,14 +19,14 @@ const AllProjects = () => {
                 <Breadcrumb className={"py-4 px-2"}>
                     <BreadcrumbList>
                         <BreadcrumbItem>
-                            <BreadcrumbLink>
-                                <a href={"/"}> Home </a>
+                            <BreadcrumbLink asChild>
+                                <Link to={"/"}> Home </Link>
                             </BreadcrumbLink>
                         </BreadcrumbItem>
                         <BreadcrumbSeparator />
                         <BreadcrumbItem>
-                            <BreadcrumbLink>
-                                <a href={"projects"}> Projekte </a>
+                            <BreadcrumbLink asChild>
+                                <Link to={"/projects"}> Projekte </Link>
                             </BreadcrumbLink>
                         </BreadcrumbItem>
                     </BreadcrumbList>
@@ -34,10 +35,25 @@ const AllProjects = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 my-16">
                     {all_projects.map((project) => (
-                        <div className="aspect-square p-4 shadow-md hover:bg-color-blue transition flex flex-col justify-between bg-color-gray">
-                            <img src={project.img} alt={project.title} />
-                            <div className={"hidden hover:block"}>{project.title}</div>
-                        </div>
+                        <>
+                            <Link
+                                to={`/projects/${project.slug}`}
+                                key={project.id}
+                                className="group aspect-square p-4 drop-shadow-xl  hover:shadow-2xl flex flex-col justify-between bg-cover bg-center relative"
+                                style={{ backgroundImage: `url(${project.img})`, backgroundSize:`cover`}}>
+
+                                <div className="absolute inset-0 opacity-80 mix-blend-multiply group-hover:bg-color-dark transition-all duration-300"></div>
+
+                                <div className="z-10 text-white text-lg font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    {project.title}
+                                </div>
+
+                                <div className="z-10 text-white text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    {project.description} <br/> <span className="text-color-darkgray font-sm">mehr erfahren</span>
+                                </div>
+                            </Link>
+                        </>
+
                     ))}
                 </div>
             </div>

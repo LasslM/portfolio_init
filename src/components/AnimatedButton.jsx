@@ -7,9 +7,8 @@ function AnimatedButton({
                             children,
                             primary,
                             secondary,
-                            success,
-                            warning,
-                            danger,
+                            simple_w,
+                            simple_b,
                             outline,
                             rounded,
                             className,
@@ -19,17 +18,13 @@ function AnimatedButton({
         "px-12 py-1.5 border transition-all duration-300",
         {
             "border-color-dark bg-color-dark text-color-light": primary && !outline,
-            "border-gray-900 bg-gray-900 text-white": secondary && !outline,
-            "border-green-500 bg-green-500 text-white": success && !outline,
-            "border-yellow-400 bg-yellow-400 text-white": warning && !outline,
-            "border-red-500 bg-red-500 text-white": danger && !outline,
+            "border-color-gray bg-color-gray text-color-light": secondary && !outline,
+            "text-color-light": simple_w && !outline,
+            "text-color-dark": simple_b && !outline,
 
             "bg-white": outline,
             "text-color-dark border-color-dark bg-color-light hover:bg-color-dark hover:text-color-light": outline && primary,
             "text-gray-900 border-gray-900": outline && secondary,
-            "text-green-500 border-green-500": outline && success,
-            "text-yellow-500 border-yellow-400": outline && warning,
-            "text-red-500 border-red-500": outline && danger,
 
             "rounded-full": rounded,
         },
@@ -49,9 +44,8 @@ AnimatedButton.propTypes = {
     children: PropTypes.node.isRequired,
     primary: PropTypes.bool,
     secondary: PropTypes.bool,
-    success: PropTypes.bool,
-    warning: PropTypes.bool,
-    danger: PropTypes.bool,
+    simple_w: PropTypes.bool,
+    simple_b: PropTypes.bool,
     outline: PropTypes.bool,
     rounded: PropTypes.bool,
     className: PropTypes.string,
@@ -59,16 +53,14 @@ AnimatedButton.propTypes = {
     checkVariationValue: function ({
                                        primary,
                                        secondary,
-                                       success,
-                                       warning,
-                                       danger,
+                                       simple_w,
+                                       simple_b
                                    }) {
         const count =
             Number(!!primary) +
             Number(!!secondary) +
-            Number(!!success) +
-            Number(!!warning) +
-            Number(!!danger);
+            Number(!!simple_w) +
+            Number(!!simple_b)
         if (count > 1) {
             return new Error(
                 "Only one of primary, secondary, success, warning, or danger can be true."

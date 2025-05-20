@@ -3,9 +3,8 @@ import {projects_bento} from "../constants/index.jsx";
 import AnimatedButton from "../components/AnimatedButton.jsx"
 import { useNavigate } from 'react-router-dom';
 
-
-
 const Projects = () => {
+
     const navigate = useNavigate();
     const handleClick = () => {
         navigate('projects');

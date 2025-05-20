@@ -8,7 +8,7 @@ import {
     BreadcrumbList,
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
-import {navigation} from "@/constants/index.jsx";
+import {Link} from "react-router-dom";
 
 const Skills = () => {
     return (
@@ -19,19 +19,20 @@ const Skills = () => {
                 <Breadcrumb className={"py-4 px-2"}>
                     <BreadcrumbList>
                         <BreadcrumbItem>
-                            <BreadcrumbLink>
-                                <a href={"/"}> Home </a>
+                            <BreadcrumbLink asChild>
+                                <Link to={"/"}> Home </Link>
                             </BreadcrumbLink>
                         </BreadcrumbItem>
                         <BreadcrumbSeparator />
                         <BreadcrumbItem>
-                            <BreadcrumbLink>
-                                <a href={"skills"}> Fähigkeiten </a>
+                            <BreadcrumbLink asChild>
+                                <Link to={"/skills"}> Fähigkeiten </Link>
                             </BreadcrumbLink>
                         </BreadcrumbItem>
                     </BreadcrumbList>
                 </Breadcrumb>
                 <h1> Fähigkeiten </h1>
+                <p className="mt-12 text-color-redmuted font-semibold">Work in Progress!</p>
             </div>
             <Footer />
         </>

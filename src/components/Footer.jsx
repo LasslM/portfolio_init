@@ -1,6 +1,6 @@
 import { Separator } from "@/components/ui/separator.jsx"
 import {Phone, Mail} from "lucide-react";
-
+import {Link} from  "react-router-dom";
 
 const Footer = () => {
     return (
@@ -26,10 +26,11 @@ const Footer = () => {
                     <Separator orientation="vertical"/>
                     <Mail  className="lg:w-5 text-color-darkgray" /> <span> lassl.m@gmx.at </span>
                     <Separator orientation="vertical"/>
-                    <div className="underline">Über mich</div>
+                    <Link to={'/about-me'} className="underline">Über mich</Link>
                 </div>
-                <div className="lg:hidden">
-                    <div className="underline">Kontakt</div>
+                <div className="lg:hidden flex  flex-row gap-3">
+                    <Link to={'/contact'} className="underline">Kontakt</Link>
+                    <Link to={'/about-me'} className="underline">Über mich</Link>
                 </div>
             </div>
         </>
