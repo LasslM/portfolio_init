@@ -14,9 +14,12 @@ const Home = () => {
             bg-no-repeat
             bg-[length:contain]
             bg-[position:-150px_-250px]
-            lg:bg-[position:-200px_-250px]
-            sm:bg-[position:-50px_-150px]
-            xs:bg-[position:10px_10px]
+            2xl:bg-[position:-150px_-250px]
+            xl:bg-[position:-150px_-150px]
+            lg:bg-[position:-50px_-150px]
+            md:bg-[position:-50px_-100px]
+            sm:bg-[position:-30px_-80px]
+            xs:bg-[position:-30px_-25px]
             bg-[url('/src/assets/background.svg')]
               "
             >

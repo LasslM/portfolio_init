@@ -8,6 +8,9 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
     "./public/assets/**/*.{js,ts,jsx,tsx}",
+	'./pages/**/*.{js,ts,jsx,tsx,mdx}',
+	'./components/**/*.{js,ts,jsx,tsx,mdx}',
+	'./app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
   	extend: {
@@ -84,8 +87,14 @@ export default {
 			third: "moveInCircle 40s linear infinite",
 			fourth: "moveHorizontal 40s ease infinite",
 			fifth: "moveInCircle 20s ease infinite",
+			scroll: 'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
 		},
 		keyframes: {
+			scroll: {
+				to: {
+					transform: 'translate(calc(-50% - 0.5rem))',
+				},
+			},
 			moveHorizontal: {
 				"0%": {
 					transform: "translateX(-50%) translateY(-10%)",
@@ -120,7 +129,6 @@ export default {
 				},
 			},
 		},
-
   		spacing: {
   			'15': '3.75rem',
   			'0.25': '0.0625rem',
@@ -145,21 +153,15 @@ export default {
   		borderWidth: {
   			DEFAULT: '0.0625rem'
   		},
-  		backgroundImage: {
-  			'radial-gradient': 'radial-gradient(var(--tw-gradient-stops))',
-  			'conic-gradient': 'conic-gradient(from 225deg, #FFC876, #79FFF7, #9F53FF, #FF98E2, #FFC876)',
-  			'benefit-card-1': 'url(assets/benefits/card-1.svg)',
-  			'benefit-card-2': 'url(assets/benefits/card-2.svg)',
-  			'benefit-card-3': 'url(assets/benefits/card-3.svg)',
-  			'benefit-card-4': 'url(assets/benefits/card-4.svg)',
-  			'benefit-card-5': 'url(assets/benefits/card-5.svg)',
-  			'benefit-card-6': 'url(assets/benefits/card-6.svg)'
-  		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+		screens: {
+			'xs': '375px',
+			'xxs': '320px',
+		}
   	}
   },
   plugins: [

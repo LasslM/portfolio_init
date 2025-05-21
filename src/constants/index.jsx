@@ -8,7 +8,20 @@ import img2 from '@/assets/projects/img2.jpg';
 import img3 from '@/assets/projects/img3.jpg';
 import img4 from '@/assets/projects/img4.jpg';
 
+import img_blacktie_cover from '@/assets/projects/blacktie/Blacktie_Tickets.png'
+import img_mangrove_cover from '@/assets/projects/mangrove/mangrove_handholding.png'
+import img_mangrove_cover2 from '@/assets/projects/mangrove/mangrove_twocans.png'
 
+
+import img1_poster from '@/assets/projects/poster/poster1.png';
+import img2_poster from '@/assets/projects/poster/poster2.png';
+import img3_poster from '@/assets/projects/poster/poster_tiger.png';
+
+import img_poster_natureswatch from '@/assets/projects/poster/natureswatch_mockup_lowqualiy.png';
+
+import {InfiniteMovingCards} from "@/components/ui/infinite-moving-cards.jsx"
+
+import React from "react";
 
 const EmptyIcon = () => null;
 
@@ -66,7 +79,7 @@ export const projects_bento = [
         href: "/projects/blacktie-clubbing",
         cta: "mehr erfahren",
         className: "col-span-3 lg:col-span-2",
-        background: <img className="absolute opacity-60 object-cover w-full h-full" />,
+        background: <img src="src/assets/projects/cover_bento/BlackTie_Tickets.png" className="absolute opacity-100 object-cover w-full h-full" />,
     },
     {
         Icon: EmptyIcon,
@@ -75,7 +88,7 @@ export const projects_bento = [
         href: "/projects/mangrove-energy",
         cta: "mehr erfahren",
         className: "col-span-3 lg:col-span-2",
-        background: <img className="absolute opacity-60 object-cover w-full h-full" />,
+        background: null,
     },
     {
         Icon: EmptyIcon,
@@ -94,11 +107,11 @@ export const all_projects = [
         slug: 'blacktie-clubbing',
         title: 'BlackTie Clubbing 2024',
         description: 'Gestaltung von Postern, Eintrittskarten, Flyern und mehr.',
-        img: img1,
+        img: img_blacktie_cover,
+        sizing: "170%",
         content: 'BLACKTIE Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
         gallery: [
-            img1,
-            img2
+            img_blacktie_cover,
         ],
         tags: [
             'Event Marketing',
@@ -111,11 +124,12 @@ export const all_projects = [
         slug: 'mangrove-energy',
         title: 'Mangrove Energy',
         description: 'Entwicklung eine Brand Identity mit Website inkl. Online-Shop, Mockups und einem Styleguide.',
-        img: img2,
+        img: img_mangrove_cover,
+        sizing: null,
         content: 'MANGROVE Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
         gallery: [
-            img1,
-            img2
+            img_mangrove_cover,
+            img_mangrove_cover2
         ],
         tags: [
             'Corporate Design',
@@ -128,11 +142,11 @@ export const all_projects = [
         title: 'Verschiedene Poster',
         slug: 'poster',
         description: 'Gestaltung von verschiedenen Postern mithilfe von Adobe-Produkten.',
-        img: img3,
+        img: img_poster_natureswatch,
+        sizing: "150%",
         content: 'POSTER Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
         gallery: [
-            img1,
-            img2
+            img_poster_natureswatch
         ],
         tags: [
             'Printdesign',
@@ -208,4 +222,56 @@ export const all_projects = [
             'Webentwicklung',
         ],
     },
-]
+];
+
+
+
+const bento_extracontent_poster = [
+    { imageUrl: img1_poster },
+    { imageUrl: img2_poster },
+    { imageUrl: img3_poster },
+];
+const bento_extracontent = [
+    { imageUrl: img1 },
+    { imageUrl: img2 },
+    { imageUrl: img3 },
+    { imageUrl: img4 },
+];
+export const items = [
+    {
+        title: "Event Marketing",
+        href: "/projects/blacktie-clubbing",
+        description: "Gestaltung von Postern, Eintrittskarten, Flyern und mehr.",
+        header: <img src="src/assets/projects/blacktie/Blacktie_Tickets.png" className="flex flex-1 w-full h-[10rem] min-h-[6rem] object-cover flex-col space-y-2" />,
+        className: "md:col-span-2",
+    },
+    {
+        title: "Webentwicklung",
+        href: "/projects/portfolio",
+        description: "Von der Idee bis zum finalen Produkt.",
+        header:<img src="src/assets/projects/poster/natureswatch_mockup_lowqualiy.png" className="flex flex-1 w-full h-[10rem] min-h-[6rem] object-cover flex-col space-y-2" />,
+        className: "md:col-span-1",
+    },
+    {
+        title: "Poster Design",
+        href: "/projects/poster",
+        description: "Verwendung von Adobe Produkten.",
+        header:
+            <div className="h-[40rem] opacity-100 md:opacity-30 lg:opacity-30 hover:opacity-100 flex flex-col antialiased bg-color-gray items-center justify-center relative overflow-hidden">
+                <InfiniteMovingCards
+                    items={bento_extracontent_poster}
+                    direction="right"
+                    speed="slow"
+                />
+            </div>,
+        className: "md:col-span-1",
+    },
+    {
+        title: "Brand Identity",
+        href: "/projects/mangrove-energy",
+        description:
+            "Entwicklung eines Styleguides mit Mockups und E-Commerce Website.",
+        header: <img src="src/assets/projects/mangrove/mangrove_twocans.png" className="flex flex-1 w-full h-[10rem] min-h-[6rem] object-cover flex-col space-y-2 offse" />,
+        className: "md:col-span-2",
+    },
+];

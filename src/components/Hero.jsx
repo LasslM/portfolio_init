@@ -10,7 +10,7 @@ const Hero = () => {
                     GRAFIK DESIGN | WEBENTWICKLUNG
                 </TextAnimate>
 
-                <h1 className="mt-2 mb-2">Marius Lassl</h1>
+                <h1 className="mt-2 mb-2 xl:text-8xl lg:text-7xl sm:text-5xl">Marius Lassl</h1>
                 <div>
                     Willkommen in meinem <span className="uppercase font-bold">Portfolio</span>
                 </div>

@@ -40,15 +40,16 @@ const AllProjects = () => {
                                 to={`/projects/${project.slug}`}
                                 key={project.id}
                                 className="group aspect-square p-4 drop-shadow-xl  hover:shadow-2xl flex flex-col justify-between bg-cover bg-center relative"
-                                style={{ backgroundImage: `url(${project.img})`, backgroundSize:`cover`}}>
+                                style={{
+                                    backgroundImage: `url(${project.img})`, backgroundSize: project.sizing || 'cover',}}>
 
                                 <div className="absolute inset-0 opacity-80 mix-blend-multiply group-hover:bg-color-dark transition-all duration-300"></div>
 
-                                <div className="z-10 text-white text-lg font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div className="z-10 text-white text-lg lg:text-xl 2xl:text-3xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     {project.title}
                                 </div>
 
-                                <div className="z-10 text-white text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div className="z-10 text-white text-sm 2xl:text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     {project.description} <br/> <span className="text-color-darkgray font-sm">mehr erfahren</span>
                                 </div>
                             </Link>

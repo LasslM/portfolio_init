@@ -1,7 +1,10 @@
-import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
-import {projects_bento} from "../constants/index.jsx";
+import {items} from "../constants/index.jsx";
 import AnimatedButton from "../components/AnimatedButton.jsx"
 import { useNavigate } from 'react-router-dom';
+
+import React from "react";
+import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
+
 
 const Projects = () => {
 
@@ -18,9 +21,21 @@ const Projects = () => {
             </div>
 
             <div className={"lg:mx-48 w-auto"}>
-                <BentoGrid>
+                {/*<BentoGrid>
                     {projects_bento.map((feature, idx) => (
                         <BentoCard key={idx} {...feature} />
+                    ))}
+                </BentoGrid>*/}
+                <BentoGrid className="w-full mx-auto md:auto-rows-[30rem]">
+                    {items.map((item, i) => (
+                        <BentoGridItem
+                            key={i}
+                            title={item.title}
+                            href={item.href}
+                            description={item.description}
+                            header={item.header}
+                            className={item.className}
+                        />
                     ))}
                 </BentoGrid>
             </div>
@@ -33,5 +48,6 @@ const Projects = () => {
         </>
     )
 }
+
 
 export default Projects;
