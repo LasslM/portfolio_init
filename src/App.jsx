@@ -4,6 +4,7 @@ import {navigation} from '@/constants/index.jsx';
 import ScrollToTop from '../src/components/ScrollToTop.jsx';
 import ProjectsDetailed from '../src/pages/ProjectsDetailed.jsx';
 
+
 const App = ()  => {
   return (
       <>

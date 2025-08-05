@@ -10,10 +10,14 @@ import {
     BreadcrumbList,
     BreadcrumbSeparator
 } from "@/components/ui/breadcrumb.jsx";
+import CustomCursor from "@/components/CustomCursor.jsx";
+import React, {useState} from "react";
 
 const AllProjects = () => {
+    const [cursorEnabled, setCursorEnabled] = useState(false);
     return (
         <>
+            <CustomCursor enabled={cursorEnabled} />
             <Header/>
             <div className={"lg:mx-48 mx-10 mt-36"}>
                 <Breadcrumb className={"py-4 px-2"}>
@@ -38,8 +42,16 @@ const AllProjects = () => {
                         <>
                             <Link
                                 to={`/projects/${project.slug}`}
+                                onMouseEnter={() => {
+                                    console.log("Hover start");
+                                    setCursorEnabled(true);
+                                }}
+                                onMouseLeave={() => {
+                                    console.log("Hover end");
+                                    setCursorEnabled(false);
+                                }}
                                 key={project.id}
-                                className="group aspect-square p-4 drop-shadow-xl  hover:shadow-2xl flex flex-col justify-between bg-cover bg-center relative"
+                                className="group aspect-square p-4 drop-shadow-xl  hover:shadow-2xl flex flex-col justify-between bg-cover bg-center relative hover:scale-105 transition hover:cursor-none"
                                 style={{
                                     backgroundImage: `url(${project.img})`, backgroundSize: project.sizing || 'cover',}}>
 
@@ -50,7 +62,7 @@ const AllProjects = () => {
                                 </div>
 
                                 <div className="z-10 text-white text-sm 2xl:text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    {project.description} <br/> <span className="text-color-darkgray font-sm">mehr erfahren</span>
+                                    {project.description}
                                 </div>
                             </Link>
                         </>

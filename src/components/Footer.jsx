@@ -2,13 +2,15 @@ import { Separator } from "@/components/ui/separator.jsx"
 import {Phone, Mail} from "lucide-react";
 import {Link} from  "react-router-dom";
 
-const Footer = () => {
+const Footer =  ({ space }) => {
+    if (!space) space = "mt-32";
+
     return (
         <>
-            <div className="mt-32 py-4 px-10 ">
+            <div className={`${space} py-4 px-10`}>
                 <div className="space-y-1">
 
-                    <h4 className="text-sm font-semibold leading-none">Marius Lassl</h4>
+                    <h5 className="text-sm font-semibold leading-none">Marius Lassl</h5>
                     <div className="flex flex-row justify-between">
                         <p className="text-sm text-color-darkgray">
                             Grafik Design | Webentwicklung
@@ -24,13 +26,11 @@ const Footer = () => {
                 <div className="hidden lg:flex h-5 space-x-4 text-sm lg:flex-row lg:items-center">
                     <Phone className="lg:w-5 text-color-darkgray" /> <span>+43 664 5859370</span>
                     <Separator orientation="vertical"/>
-                    <Mail  className="lg:w-5 text-color-darkgray" /> <span> lassl.m@gmx.at </span>
-                    <Separator orientation="vertical"/>
-                    <Link to={'/about-me'} className="underline">Über mich</Link>
+                    <Mail  className="lg:w-5 text-color-darkgray" /> <span> office@marius-lassl.com </span>
+
                 </div>
                 <div className="lg:hidden flex  flex-row gap-3">
                     <Link to={'/contact'} className="underline">Kontakt</Link>
-                    <Link to={'/about-me'} className="underline">Über mich</Link>
                 </div>
             </div>
         </>

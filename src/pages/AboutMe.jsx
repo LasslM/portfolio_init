@@ -11,9 +11,9 @@ import {Link} from "react-router-dom";
 
 const AboutMe = () => {
     return(
-        <>
+        <div class="flex flex-col min-h-screen">
             <Header/>
-            <div className={"lg:mx-48 mx-10 mt-36"}>
+            <div className={"flex-1 lg:mx-48 mx-10 mt-36"}>
                 <Breadcrumb className={"py-8 px-2"}>
                     <BreadcrumbList>
                         <BreadcrumbItem>
@@ -33,7 +33,7 @@ const AboutMe = () => {
                 <p className="mt-12 text-color-redmuted font-semibold">Work in Progress!</p>
             </div>
             <Footer/>
-        </>
+        </div>
     )
 }
 

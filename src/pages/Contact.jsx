@@ -12,11 +12,12 @@ import {Phone, Mail, MapPinned, Linkedin, Instagram} from "lucide-react";
 
 
 
+
 const Contact = () => {
     return(
-        <>
+        <div className="flex flex-col min-h-screen"> {/*flex so footer stays on bottom*/}
             <Header/>
-            <div className={"lg:mx-48 mx-10 mt-36"}>
+            <div className={"flex-1 lg:mx-48 mx-10 mt-36"}>
                 <Breadcrumb className={"py-4 px-2"}>
                     <BreadcrumbList>
                         <BreadcrumbItem>
@@ -33,28 +34,28 @@ const Contact = () => {
                     </BreadcrumbList>
                 </Breadcrumb>
                 <h1> Kontakt </h1>
-                <div className={"my-16 grid lg:grid-cols-2 gap-14"}>
+                <div className={"my-16 grid lg:grid-cols-2 gap-14 font-light"}>
                     <div>
                         <p className={"mb-2 font-bold"}>Noch Fragen oder eine kreative Idee, die umgesetzt werden will?</p>
-                        <p>Ich freue mich über Ihre Nachricht – sei es für ein konkretes Projekt, eine erste Anfrage oder einen fachlichen Austausch. Schreiben Sie mir gerne. Ich melde mich zeitnah persönlich zurück.</p>
+                        <p>
+                            Ich freue mich über Ihre Nachricht, sei es für ein konkretes Projekt, eine erste Anfrage oder einen fachlichen Austausch. Schreiben Sie mir gerne.                        </p>
                         <div className="space-y-4 my-8">
                             <div className="flex items-center gap-4">
-                                <Phone /> <span>+43 664 5859370</span>
+                                <Phone strokeWidth="1.25px" /> <span>+43 664 5859370</span>
                             </div>
                             <div className="flex items-center gap-4">
-                                <Mail /> <span>lassl.m@gmx.at</span>
+                                <Mail  strokeWidth="1.25px" /> <span>office@marius-lassl.com</span>
                             </div>
                             <div className="flex items-center gap-4">
-                                <MapPinned /> <span>Niederösterreich, Gmünd</span>
+                                <MapPinned strokeWidth="1.25px"  /> <span>Österreich</span>
                             </div>
                         </div>
                     </div>
 
                 </div>
-
             </div>
             <Footer />
-        </>
+        </div>
     )
 }
 

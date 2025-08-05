@@ -8,7 +8,7 @@ export const BentoGrid = ({
     return (
         <div
             className={cn(
-                "mx-auto grid max-w-6xl grid-cols-1 gap-4 md:auto-rows-[18rem] md:grid-cols-3",
+                "mx-auto grid max-w-6xl grid-cols-1 gap-6 md:auto-rows-[18rem] md:grid-cols-3",
                 className
             )}>
             {children}
@@ -21,17 +21,27 @@ export const BentoGridItem = ({
                                   title,
                                   href,
                                   description,
-                                  header
+                                  header,
+                                  setCursorEnabled
                               }) => {
     return (
         <Link
             to={href}
+            onMouseEnter={() => {
+                console.log("Hover start");
+                setCursorEnabled(true);
+            }}
+            onMouseLeave={() => {
+                console.log("Hover end");
+                setCursorEnabled(false);
+            }}
+
             className={cn(
-                "group/bento shadow-input  h-[30rem] row-span-1 flex flex-col justify-between space-y-4 border border-neutral-200 bg-white transition duration-200 shadow-2xl hover:shadow-xl ",
+                "group/bento shadow-input  h-[30rem] row-span-1 flex flex-col justify-between space-y-4 bg-white transition duration-200 shadow-2xl hover:shadow-xl hover:scale-105 hover:cursor-none",
                 className
             )}>
             {header}
-            <div className="transition duration-200 group-hover/bento:translate-x-2 px-4 pb-4">
+            <div className="px-4 pb-4">
                 <div
                     className="font-bold text-color-dark dark:text-neutral-200">
                     {title}

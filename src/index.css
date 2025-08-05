@@ -13,10 +13,12 @@
 
     --duration: 20s;
     --gap: 2rem;
+
+    --color-blue: #0D4ABC;
 }
 
 * {
-    scroll-behavior: smooth;
+    scroll-behavior:  smooth;
 }
 
 @layer base {
@@ -30,6 +32,18 @@
 
     h2{
         @apply text-3xl font-semibold;
+    }
+
+    h3{
+        @apply text-xl font-semibold;
+    }
+
+    h4{
+        @apply text-lg font-bold font-mono text-color-dark mt-4;
+    }
+
+    *{
+
     }
 
     #link{
@@ -48,6 +62,31 @@
 
     #fa-solid{
         margin-left: 0.5em;
+    }
+
+    .blob {
+        position: absolute;
+        border-radius: 9999px;
+        width: 900px;
+        height: 900px;
+    }
+
+    #blob1{
+        width: 1050px;
+        height: 1050px;
+    }
+
+    #blob4{
+        width: 700px;
+        height: 700px;
+    }
+    #blob5{
+        width: 700px;
+        height: 700px;
+    }
+    #blob6{
+        width: 600px;
+        height: 600px;
     }
 
     #pink{

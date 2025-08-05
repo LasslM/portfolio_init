@@ -3,7 +3,6 @@ import {
     Sheet,
     SheetContent,
     SheetDescription,
-    SheetHeader,
     SheetTitle,
     SheetTrigger,
 } from "../components/ui/sheet"
@@ -14,21 +13,21 @@ const Header = () => {
 
     return (
         <>
-            <div className="fixed w-full top-0 z-50 backdrop-blur-sm lg:backdrop-blur-sm px-10 py-2">
+            <div className="fixed w-full pt-3 top-0 z-50 backdrop-blur-sm lg:backdrop-blur-sm px-10 py-2">
                 <div className="flex items-center justify-between w-full">
                     <Link className="block w-[12rem] font-bold" to="/">
                         MARIUS LASSL
                     </Link>
-
                     <nav className="hidden lg:block bg-transparent lg:bg-transparent">
                         <div className="flex z-2 gap-x-6">
                             {navigation.map((item) => (
-                                <Link key={item.id} to={item.url}
-                                   className={`block uppercase transition-colors 
-                             ${item.highlight || ""} 
-                             ${item.url === pathname.pathname ? "z-2 lg:text-color-dark" : "lg:text-color-darkgray"}`}>
-                                    {item.title}
-                                </Link>
+                                !item.disabled && (
+                                    <Link key={item.id} to={item.url}
+                                          className={`block uppercase transition-colors 
+                                                    ${item.highlight || ""}`}>
+                                        {item.title}
+                                    </Link>
+                                )
                             ))}
                         </div>
                     </nav>
@@ -42,11 +41,14 @@ const Header = () => {
                         <SheetTitle className={"hidden"}/>
                         <SheetDescription className={"hidden"}/>
                         <SheetContent>
+
                             {navigation.map((item) => (
-                                <Link key={item.id} to={item.url}
-                                   className={`block uppercase transition-colors text-2xl ${item.highlight || ""}`}>
-                                    {item.title}
-                                </Link>
+                                !item.disabled && (
+                                    <Link key={item.id} to={item.url}
+                                          className={`block uppercase transition-colors text-2xl hover:text-color-blue`}>
+                                        {item.title}
+                                    </Link>
+                                )
                             ))}
                         </SheetContent>
                     </Sheet>
